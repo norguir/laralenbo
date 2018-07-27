@@ -1,0 +1,8 @@
+{>"layout.dust"/}
+
+{<title}Demande de prêt - Lenbo{/title}
+{<page}page-ious-new{/page}
+
+{<main}
+{>"ious-new-nolayout.dust"/}
+{/main}

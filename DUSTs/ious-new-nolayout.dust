@@ -1,0 +1,203 @@
+<nav class="nav">
+  <ol>
+    <li class="active"><a>Création</a></li>
+    <li><a>Mes informations</a></li>
+    <li><a>Partage</a></li>
+  </ol>
+</nav>
+
+<div class="c">
+  <h1 class="h h1">Je définis mon prêt</h1>
+</div>
+
+<form action="/ious/new" method="post">
+  <div class="c">
+    {! `money_released` !}
+    <fieldset class="radio">
+      <legend class="label">Statut du prêt</legend>
+
+      <label class="radiobtn">
+        <input type="radio" disabled name="money_released" value="1" tabindex="-1" {@eq key="{_settings.body.money_released}" value="1"}checked{/eq}><i tabindex="0"></i>
+        <em class="label">En cours</em>
+      </label>
+      <label class="radiobtn">
+        <input type="radio" checked name="money_released" value="0" tabindex="-1" {@eq key="{_settings.body.money_released}" value="0"}checked{/eq}><i></i>
+        <em class="label">Nouveau</em>
+      </label>
+
+      {#_settings.messages.body.money_released}
+      <strong class="er">{@select key=code}
+        {@eq value="missing"}Cette information est requise{/eq}
+      {/select}</strong>
+      {/_settings.messages.body.money_released}
+    </fieldset>
+
+    {! `initiated_by` !}
+    <fieldset class="radio iam">
+      <legend class="label">Je suis</legend>
+      
+      <label>
+        <input type="radio" name="initiated_by" value="borrower" {@eq key="{_settings.body.initiated_by}" value="borrower"}checked{/eq}>
+        <span class="btn">Emprunteur</span>
+      </label>
+      <label>
+        <input type="radio" name="initiated_by" value="lender" {@eq key="{_settings.body.initiated_by}" value="lender"}checked{/eq}>
+        <span class="btn">Prêteur</span>
+      </label>
+
+      {#_settings.messages.body.initiated_by}
+      <strong class="er">{@select key=code}
+        {@eq value="missing"}Cette information est requise{/eq}
+      {/select}</strong>
+      {/_settings.messages.body.initiated_by}
+    </fieldset>
+
+    {! `amount` !}
+    <p>
+      <label class="field {#_settings.messages.body.amount}er{/_settings.messages.body.amount}">
+        <em class="label">Montant du prêt{!  <small class="hint">Minimum 100 €</small> !}</em>
+        <span class="input-and-currency">
+          <input type="number" name="amount" placeholder="Ex : 3000" value="{iou.amount}" min="0" step="0.01">
+          <span class="currency">€</span>
+        </span>
+        {#_settings.messages.body.amount}
+        <strong class="er">{@select key=code}
+          {@eq value="invalid"}Merci de renseigner un montant valide et supérieur à 100€{/eq}
+        {/select}</strong>
+        {/_settings.messages.body.amount}
+      </label>
+    </p>
+
+    <div class="group repayment"><fieldset>
+      {!<legend class="label js">Je propose de rembourser</legend>!}
+      <legend class="label js">Remboursement</legend>
+      
+      {! `repayment_repeat` !}
+      <fieldset class="radio">
+        <div class="repeat {@select key=_settings.body.repayment_repeat}
+          {@eq value="once"}repeat-0{/eq}
+          {@eq value="monthly"}repeat-1{/eq}
+        {/select}">
+          <label class="radiobtn">
+            <input type="radio" name="repayment_repeat" value="once" tabindex="-1" {@eq key="{_settings.body.repayment_repeat}" value="once"}checked{/eq}><i></i>
+            <em class="label">Délai</em>
+          </label>
+          <label class="radiobtn">
+            <input type="radio" name="repayment_repeat" value="monthly" tabindex="-1" {@eq key="{_settings.body.repayment_repeat}" value="monthly"}checked{/eq}><i tabindex="0"></i>
+            <em class="label">Mensualités</em>
+          </label>
+
+          {#_settings.messages.body.repayment_repeat}
+          <strong class="er">{@select key=code}
+            {@eq value="missing"}Merci de préciser le mode de remboursement{/eq}
+          {/select}</strong>
+          {/_settings.messages.body.repayment_repeat}
+        </div>
+
+        {! `repayment_delay_value` and `repayment_delay_unit` !}
+        <fieldset class="dependent repaymentdelay">
+          <legend class="label">Au plus tard dans : <small class="hint">Maximum : 5 ans</small></legend>
+          
+          <div class="value-and-unit">
+            <label class="field {#_settings.messages.body.repayment_delay_value}er{/_settings.messages.body.repayment_delay_value}">
+              <input type="number" pattern="\d*" maxlength="3" name="repayment_delay_value" placeholder="1" value="{_settings.body.repayment_delay_value}" min="1">
+            </label>
+            <label class="field {#_settings.messages.body.repayment_delay_unit}er{/_settings.messages.body.repayment_delay_unit}">
+              <select name="repayment_delay_unit">
+                {!<option></option>!}
+                <option value="months" {@eq key="{_settings.body.repayment_delay_unit}" value="months"}selected{/eq}>mois</option>
+                <option value="days" {@eq key="{_settings.body.repayment_delay_unit}" value="days"}selected{/eq}>jours</option>
+                <option value="years" {@eq key="{_settings.body.repayment_delay_unit}" value="years"}selected{/eq}>ans</option>
+              </select>
+            </label>
+
+            {#_settings.messages.body.repayment_delay_value}
+            <strong class="er">{@select key=code}
+              {@eq value="missing"}Merci de spécifier l'échéance de remboursement{/eq}
+              {@eq value="invalid"}Le maximum est 5 ans{/eq}
+            {/select}</strong>
+            {/_settings.messages.body.repayment_delay_value}
+
+            {#_settings.messages.body.repayment_delay_unit}
+            <strong class="er">{@select key=code}
+              {@eq value="missing"}L'unité est requise{/eq}
+              {@eq value="invalid"}L'unité n'est pas correcte{/eq}
+            {/select}</strong>
+            {/_settings.messages.body.repayment_delay_unit}
+
+          </div>
+        </fieldset>
+
+        <div class="dependent repaymentslider js hidden">
+          {! <em class="label">Montant des remboursements</em> !}
+
+          <aside class="summup">
+            <p class="result"><strong><span data-repayment></span> € /mois</strong> sur <span data-repayment-months>10</span> mois.</p>
+            <p class="details">Soit un remboursement au plus tard le <time data-deadline>17 septembre 2018</time></p>
+          </aside>
+          
+          <div class="min-max-slider">
+            <div class="max"></div>
+            <div class="slider">
+              <div class="nouislider"></div>
+            </div>
+            <div class="min"></div>
+          </div>
+        </div>
+        
+      </fieldset>
+
+    </fieldset></div>
+
+  </div>
+
+  <aside class="aside"><div class="c">
+    {! `subject` !}
+    <p>
+      <label class="field">
+        <em class="label">Motif du prêt <small class="hint">Optionnel</small></em>
+
+        <input type="text" name="subject" placeholder="Ex : Nouvelle voiture" value="{_settings.body.subject}">
+        {! Ta nouvelle voiture !}
+      </label>
+    </p>
+
+    {! compensation !}
+    <p>
+      <label class="field">
+        <em class="label">Contrepartie <small class="hint">Optionnel</small></em>
+        <input type="text" name="compensation" value="{_settings.body.compensation}" placeholder="Ex : Gratitude éternelle">
+        {! Ton aide pour ta cuisine !}
+      </label>
+    </p>
+
+    <hr>
+    
+    {!<fieldset class="radio protection">
+      <legend class="label">Je protège le prêteur grâce aux services de Lenbo :</legend>
+      
+      <label class="radiobtn">
+        <input type="radio" name="protection" value="1" checked tabindex="-1"><i tabindex="0"></i>
+        <span class="label">Oui - Frais de protection à la charge de l'emprunteur</span>
+      </label>
+      <p class="esign">La signature électronique vous assure la sécurité de la transaction et l'accompagnement d'un avocat en cas de litige. <a href="javascript:void 0;">En savoir plus</a></p>
+      <p class="price">Frais de gestion : 45 €</p>
+
+      <label class="radiobtn">
+        <input type="radio" name="protection" value="0" tabindex="-1"><i></i>
+        <span class="label">Non, merci</span>
+      </label>
+    </fieldset>!}
+
+    <p>
+      <button type="submit" class="btn">Finaliser</button>
+    </p>
+
+    {! <div class="explanations">
+      <p>La reconnaissance de dette commencera le jour de la signature par le prêteur.</p>
+      <p>Le prêt pourra être remboursé partiellement ou entièrement à tout moment par anticipation des échéances prévues, sans aucun frais. Le remboursement total du prêt met fin à toutes les obligations de l’emprunteur.</p>
+      <p>Tout prêt d’un montant supérieur ou égal à 1500€ doit obligatoirement faire l’objet d’une preuve par écrit.</p>
+    </div> !}
+    
+  <div></aside>
+</form>

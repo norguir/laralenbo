@@ -1,0 +1,28 @@
+{>"layout.dust"/}
+
+{<title}{/title}
+{<page}{/page}
+
+{<main}
+<div class="c">
+  <ul>
+    <li><a href="{@url href="/"/}">HOME</li>
+    <li><a href="{@url href="/auth/oauth"/}">IDENTIFICATION OAUTH</li>
+    <li><a href="{@url href="/auth/email"/}">IDENTIFICATION EMAIL</li>
+    <li><a href="{@url href="/ious/new"/}">FORMULAIRE STEP1</li>
+    <li><a href="{@url href="/ious/new2"/}">FORMULAIRE STEP2</li>
+    <li><a href="{@url href="/ious/new3"/}">FORMULAIRE STEP3</li>
+    <li><a href="{@url href="/ious/new4"/}">FORMULAIRE STEP4</li>
+    <li><a href="{@url href="/ious/1234"/}">RDD PRIVE</li>
+    <li><a href="{@url href="/ious/1234/share"/}">RDD PUBLIQUE</li>
+    <li><a href="{@url href="/me"/}">PROFIL</li>
+    <li><a href="{@url href="/me/finalize"/}">FINALISATION CGUs</li>
+    <li><a href="{@url href="/me/ious"/}">MES RDDs</li>
+    <li><a href="{@url href="/howitworks"/}">COMMENT ÇA MARCHE</li>
+    <li><a href="{@url href="/cgu"/}">CGU</li>
+    <li><a href="{@url href="/about"/}">A PROPOS</li>
+    <li><a href="{@url href="/404"/}">404</li>
+    <li><a href="{@url href="/ious/1234.pdf"/}">RDD PDF</li>
+  </ul>
+</div>
+{/main}

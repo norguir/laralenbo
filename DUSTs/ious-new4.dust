@@ -1,0 +1,10 @@
+{>"layout.dust"/}
+
+{<title}
+{#iou.subject}{.}{:else}Ma proposition{/iou.subject} - Lenbo
+{/title}
+{<page}page-ious-new4{/page}
+
+{<main}
+{>"ious-new4-nolayout.dust"/}
+{/main}

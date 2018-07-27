@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{_settings.locale}">
+<head {+headattributes/}>
+  <meta charset=utf-8>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width{!,height=device-height!},minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+  {!https://developers.google.com/chrome/mobile/docs/installtohomescreen!}
+  {!<meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">!}
+  <title>{+title/}</title>
+  <meta name="description" content="Demander un prêt ou un remboursement n'a jamais été aussi facile.">
+
+  {! favicon: https://realfavicongenerator.net !}
+  <link rel="apple-touch-icon" sizes="180x180" href="{@url href="/apple-touch-icon.png" md5="true"/}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{@url href="/favicon-32x32.png" md5="true"/}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{@url href="/favicon-16x16.png" md5="true"/}">
+  <link rel="manifest" href="{@url href="/site.webmanifest" md5="true"/}">
+  <link rel="mask-icon" href="{@url href="/safari-pinned-tab.svg" md5="true"/}" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  {! Bob: J'ai ajouté bootstrap v3.3.7 et jquery 3.3.1 pour tester !}
+  {!<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>!}
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-functions.js"></script>
+
+  <link rel="stylesheet" href="{@url href="/index.css" md5="true"/}">
+  <script src="{@url href="/head.js" md5="true"/}"></script>{! no CDN: don't serve it through cdn to avoid DNS lookup payload !}
+
+  <link rel="stylesheet" href="{@url href="/fonts/ubuntu/index.css" md5="true"/}">
+  
+  {+head/}
+</head>
+<body class="{+page/}">
+
+  <div class="fixedbg"></div>
+  
+  <div class="header-and-main"><div class="in">{! https://codepen.io/abernier/pen/YYYrQo !}
+    <header>
+      <div id="anchor-menu">
+        <div id="header1">
+          <div class="c">
+            <div class="masthead-and-togglemenu">
+              <a class="togglemenu" href="#anchor-menu" data-target-group="anchor-menu">
+                <span class="text">MENU</span>
+                <svg role="img" class="icon icon-hamburger"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-hamburger"/></svg>
+              </a>
+              <h1 class="masthead"><a href="{@url href="/"/}">
+                {>"partials/logo.svg.dust"/}
+              </a></h1>
+            </div>
+          </div>
+          
+          <div class="menu">
+            <div class="c">
+              <div class="masthead-and-togglemenu">
+                <a class="togglemenu" href="#" data-target-group="anchor-menu">
+                  <svg role="img" class="icon icon-close"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-close"/></svg>
+                </a>
+                <h1 class="masthead"><a href="{@url href="/"/}">
+                  {>"partials/logo.svg.dust"/}
+                </a></h1>
+              </div>
+            </div>
+
+            <ul>
+              <li{! class="active"!}><a href="{@url href="/ious/new"/}">Commencer</a></li>
+              <li><a href="{@url href="/howitworks"/}">Comment ça marche</a></li>
+              <li><a href="{@url href="/about"/}">À propos</a></li>
+              <li><a href="mailto:hello@lenbo.fr">Nous contacter</a></li>
+              <li><a href="https://medium.com/@bloglenbo">Blog</a></li>
+            </ul>
+            <p class="c">
+              {#session.user.id}
+              <a href="{@url href="/me/ious"/}" class="btn alt">Mon Compte</a>
+              {:else}
+              <a href="{@url href="/auth"/}" class="btn alt">S'identifier</a>
+              {/session.user.id}
+            </p>
+          </div>
+        </div>
+
+        <div id="header2"><div class="c">
+          <h1 class="masthead"><a href="{@url href="/"/}">
+            {>"partials/logo.svg.dust"/}
+          </a></h1>
+          <ul>
+            <li{! class="active"!}><a href="{@url href="/ious/new"/}">Commencer</a></li>
+            <li><a href="{@url href="/howitworks"/}">Comment ça marche</a></li>
+            <li><a href="{@url href="/about"/}">À propos</a></li>
+            <li><a href="https://medium.com/@bloglenbo">Blog</a></li>
+            <li>
+              {#session.user.id}
+              <a href="{@url href="/me/ious"/}" class="btn alt">Mon Compte</a>
+              {:else}
+              <a href="{@url href="/auth"/}" class="btn alt">S'identifier</a>
+              {/session.user.id}
+            </li>
+            <li>
+              {#session.user.id}
+              <img alt="image" class="rounded-circle" src={session.photo}>
+              
+                <a href="{@url href="/session?_method=delete"/}" >
+                  <span class="disconnect" >Se Déconnecter</span>
+                </a>
+              
+              {/session.user.id}
+            </li>
+          </ul>
+            
+        </div></div>
+      </div>
+    </header>
+
+    <main id="main"><div class="in">
+      {+main/}
+    </div></main>
+  </div></div>
+
+  <footer>
+    {+foot/}
+  </footer>
+
+  {! Flash messages !}
+  <aside id="flash">
+    {>"flash.dust"/}
+    {!<ul>
+      <li><label>
+        <input type="radio" style="display:none;">
+        <div class="in">
+          <span class="message">Un email avec un lien de connexion vient de vous être envoyé</span>
+          <span class="action">OK</span>
+        </div>
+      </label></li>
+      <li><label>
+        <input type="radio" style="display:none;">
+        <div class="in">
+          <span class="message">Un email avec un lien de connexion vient de vous être envoyé</span>
+          <span class="action">
+            OK
+            <svg role="img" class="icon icon-close"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-close"/></svg>
+          </span>
+        </div>
+      </label></li>
+    </ul>!}
+  </aside>
+
+  {@eq key="{settings.env}" value="production"}
+  <script>
+  if (!('console' in window)) {
+    window.console = {
+      log: function () {}
+    };
+  }
+  </script>
+  {/eq}
+
+  <script src="{@url href="/vendor.js" md5="true"/}"></script>
+  <script src="{@url href="/index.js" md5="true"/}"></script>
+  <script>
+  var $ = require('jquery');
+  var _ = require('lodash');
+
+  var settings = {_settings|js|s}; {! http://stackoverflow.com/questions/19379932/json-stringify-helper !}
+
+  var Lenbo = require('Lenbo');
+
+  var lenbo = new Lenbo(settings);
+  window.lenbo = lenbo;
+
+  </script>
+
+  {@eq key="{settings.env}" value="development"}
+  <script src="https://cdn.rawgit.com/caldwell/renderjson/master/renderjson.js"></script>
+  <pre id="jsondump" style="line-height:1; font-size:10px; margin-top:0;margin-bottom:0; background:#333;color:#eee;padding:1em; max-width:100%;overflow:auto; white-space:normal;">
+  {.|js|s}
+  </pre>
+  <script>
+
+  (function () {
+    var jsondumpEl = document.getElementById('jsondump');
+    
+    renderjson.set_icons('+', '-').set_show_to_level(10);
+
+    var o = JSON.parse(jsondumpEl.innerText);
+    if ('_locals' in o) delete o._locals;
+    jsondumpEl.innerHTML = '';
+    jsondumpEl.appendChild(renderjson(o))
+  }).call(this);
+  </script>
+  
+  {/eq}
+
+  {#_settings.conf.gtm}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={.}"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{.}');
+  </script>
+  {/_settings.conf.gtm}
+  
+</body>
+</html>

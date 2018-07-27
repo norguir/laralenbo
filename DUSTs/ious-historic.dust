@@ -1,0 +1,8 @@
+{>"layout.dust"/}
+
+{<title}{/title}
+{<page}page-ious-historic{/page}
+
+{<main}
+{>"ious-historic-nolayout.dust"/}
+{/main}

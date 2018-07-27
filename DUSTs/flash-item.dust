@@ -1,0 +1,10 @@
+<li><label>
+  <input type="radio" style="display:none;">
+  <div class="in">
+    <span class="message">{message}</span>
+    <span class="action">
+      FERMER
+      <svg role="img" class="icon icon-close"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-close"/></svg>
+    </span>
+  </div>
+</label></li>

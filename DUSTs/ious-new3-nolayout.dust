@@ -1,0 +1,56 @@
+<nav class="nav">
+  <ol>
+    <li><a>Création</a></li>
+    <li><a>Mes informations</a></li>
+    <li class="active"><a>Mon paiement</a></li>
+    <li><a>Partage</a></li>
+  </ol>
+</nav>
+
+<div class="c">
+  <h1 class="h h1">Création de site internet</h1>
+  <p>Charles, vous avez choisi l'option payante avec valeur juridique pour finaliser votre reconnaissance de dette de <strong>1000 euros</strong> auprès de votre prêteur.</p>
+
+  <p class="price">Cette option vous sera facturée 45€.</p>
+</div>
+
+<div class="c aside">
+  <h2 class="h h2">Indiquez vos coordonnées bancaires pour le paiement</h2>
+
+  <div class="desc-and-offer">
+    <p class="desc">Ce montant sera débité sur votre compte uniquement <strong>après</strong> que votre prêteur ait accepté votre proposition en ligne puis votre signature électronique sur le document final.</p>
+
+    <p class="offer">
+      <span class="amount">45€</span>
+      <span class="text">
+        Documents certifiés &<br>
+        Accompagnement juridique
+      </span>
+    </p>
+  </div>
+
+  <form>
+    {!see: https://developers.google.com/web/fundamentals/design-and-ux/input/forms/#recommended_input_name_and_autocomplete_attribute_values!}
+    <figure class="creditcard">
+      <div class="logo"></div>
+      <label class="field floatlabel num">
+        <em class="label">Numéro de carte bleue</em>
+        <input type="text" name="cardnumber" placeholder="XXXX XXXX XXXX XXXX" autocomplete="cc-number">
+      </label>
+      <label class="field expire">
+        <em class="label">Expire fin</em>
+        <input type="text" name="exp-date" placeholder="MM/YYYY" autocomplete="cc-exp">
+      </label>
+      <label class="field floatlabel cvc">
+        <em class="label">CVC</em>
+        <input type="text" name="cvc" placeholder="XXX">
+      </label>
+    </figure>
+
+    <p class="submit">
+      <button type="submit" class="btn">Confirmer le paiement</button>
+    </p>
+  </form>
+
+</div>
+

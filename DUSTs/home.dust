@@ -1,0 +1,28 @@
+
+{>"layout.dust"/}
+
+{<title}Lenbo, le prêt entre particuliers simple et sécurisé{/title}
+{<page}page-home{/page}
+
+{<main}
+{>"home-nolayout.dust"/}
+{/main}
+
+{<foot}
+<div id="footer"><div class="c">
+  <h2>Suivez-nous</h2>
+  <p>Nous vous tenons informés de toutes les nouveautés de LENBO et partageons avec vous nos conseils et les actualités sur le prêt entre particuliers.</p>
+  <p class="socials">
+    <a href="https://www.facebook.com/LenBoApp/" class="btn round">
+      <svg role="img" class="icon icon-facebook"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-facebook"/></svg>
+    </a>
+    <a href="https://twitter.com/LenBoApp" class="btn round">
+      <svg role="img" class="icon icon-twitter"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-twitter"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/lenbo/" class="btn round">
+      <svg role="img" class="icon icon-twitter"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-linkedin"/></svg>
+    </a>
+  </p>
+</div></div>
+{/foot}
+

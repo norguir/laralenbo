@@ -1,0 +1,8 @@
+{>"layout.dust"/}
+
+{<title}Identification{/title}
+{<page}page-auth-oauth{/page}
+
+{<main}
+{>"auth-oauth-nolayout.dust"/}
+{/main}

@@ -1,0 +1,96 @@
+<div class="c">
+  <div class="h1-and-p">
+    <h1 class="h h1">
+      <svg role="img" class="icon icon-tick"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-tick"/></svg>
+      <span class="icon-text">
+        {! La proposition de {#owner}{firstname}{:else}inconnu{/owner} !}
+        Proposition
+      </span>
+    </h1>
+    <p>
+      {#owner.firstname}{.}{:else}{owner.email}{/owner.firstname} a créé {@eq key="{iou.initiated_by}" value="borrower"}une demande d'emprunt{:else}une proposition de prêt{/eq} à votre attention. Si les conditions vous conviennent, vous pouvez l’accepter ici en un clic.</p>
+  </div>
+
+  <div class="summup">
+    <div class="one">
+      <div class="title">
+      {#iou.subject}
+      {.}
+      {:else}
+      {@eq key="{iou.initiated_by}" value="borrower"}
+      Demande d'emprunt
+      {/eq}
+      {@eq key="{iou.initiated_by}" value="lender"}
+      Proposition de prêt
+      {/eq}
+      {/iou.subject}</div>
+
+      <dl>
+        {@eq key="{iou.initiated_by}" value="borrower"}
+        <dt>Emprunteur</dt>
+        {! <dd>{#iou.Borrower}{firstname} {lastname}{:else}Inconnu{/iou.Borrower}</dd> !}
+        <dd>{iou.Borrower.email}</dd>
+        {/eq}
+        {@eq key="{iou.initiated_by}" value="lender"}
+        <dt>Prêteur</dt>
+        {! <dd>{#iou.Lender}{firstname} {lastname}{:else}Inconnu{/iou.Lender}</dd> !}
+        <dd>{iou.Lender.email}</dd>
+        {/eq}
+
+        {! <dt>Avec valeur juridique</dt>
+        <dd>Non</dd> !}
+
+        <dt>Statut du prêt</dt>
+        <dd>{@eq key="{iou.money_released}" value="true"}En cours{:else}Nouveau{/eq}</dd>
+
+        <dt>Statut de la demande</dt>
+        <dd>{#iou.accepted_at}Acceptée{:else}En attente d'acceptation{/iou.accepted_at}</dd>
+
+      </dl>
+    </div>
+    <div class="two">
+      <dl>
+        <dt>Montant du prêt</dt>
+        <dd>{iou.amount} €</dd>
+
+        <dt>Remboursement</dt>
+        <dd>
+          {@eq key="{iou.repayment_repeat}" value="once"}
+            En {iou.repayment_delay_value} {@select key=iou.repayment_delay_unit}
+              {@eq value="days"}jour(s){/eq}
+              {@eq value="months"}mois{/eq}
+              {@eq value="years"}an(s){/eq}
+            {/select}
+          {/eq}
+          {@eq key="{iou.repayment_repeat}" value="monthly"}
+            {repaymentPerMonth} € /mois
+          {/eq}
+        </dd>
+
+        <dt>Date de fin de remboursement</dt>
+        <dd>{repaymentDeadline}</dd>
+
+        <dt>Contrepartie</dt>
+        <dd>{#iou.compensation}{.}{:else}Aucune{/iou.compensation}</dd>
+
+      </dl>
+
+      <p class="buttons">
+        <a href="{@url href="/ious/{iou.id}/accept"/}">Accepter</a>
+        <a href="{@url href="/"/}">Décliner</a>
+      </p>
+    </div>
+  </div>
+
+  <p class="contactus">
+    <a href="mailto:hello@lenbo.fr" class="btn round">
+      <svg role="img" class="icon icon-email"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-email"/></svg>
+    </a>
+  </p>
+
+  <p class="copyright">
+    Tous droits réservés Lenbo.fr 2018
+    <a href="{@url href="/cgu"/}">Conditions Générales d'Utilisation</a>
+  </p>
+
+</div>

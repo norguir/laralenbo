@@ -1,0 +1,53 @@
+<div class="c">
+  <div class="one-and-two">
+    <div class="one">
+      <p class="h h1">
+        <strong>Lenbo</strong>,<br> 
+        le prêt de confiance<br> 
+      </p>
+
+      <p>Envoyez votre demande de prêt à qui vous voulez.</p>
+    </div><div class="two">
+      <aside class="emailform">
+        <h1 class="h h1">Identifiez-vous avec votre adresse email</h1>
+        <form action="" method="post">
+          <p>
+            <label class="field floatlabel">
+              <em class="label">Email</em>
+              <input type="text" name="email" placeholder="jean.dupont@orange.fr" autofocus value="{_settings.body.email}">
+            </label>
+            
+            {#_settings.messages.body.email}
+            <strong class="er">{@select key=code}
+              {@eq value="missing"}Merci d'entrer votre email{/eq}
+              {@eq value="invalid"}Merci d'entrer un email valide{/eq}
+              {@eq value="taken"}Cet email n'est pas libre{/eq}
+            {/select}</strong>
+            {/_settings.messages.body.email}
+          </p>
+          <p>
+            <button type="submit" class="btn">Je m'identifie</button>
+          </p>
+
+          {! invisible Google recaptcha: https://www.google.com/recaptcha/admin#site/340028445?setup !}
+          <script>function recaptcha_cb() {lenbo.mainView.recaptchaCallback();}</script>
+          <div class="g-recaptcha"></div>
+        </form>
+
+        <p class="prev">
+          <a rel="prev" href="{@url href="/auth/oauth"}
+           {$url}?{@querymerge q1=_settings.querystring q2="next={_settings.query.next|uc}"/}
+          {/url}">
+            <svg role="img" class="icon icon-leftarrow"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-leftarrow"/></svg>
+            <span>Retour</span>
+          </a>
+        </p>
+      </aside>
+
+      <a class="close" href="{@url href="/"/}">
+        <svg role="img" class="icon icon-close"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-close"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+

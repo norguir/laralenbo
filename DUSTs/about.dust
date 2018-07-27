@@ -1,0 +1,8 @@
+{>"layout.dust"/}
+
+{<title}À propos{/title}
+{<page}page-about{/page}
+
+{<main}
+{>"about-nolayout.dust"/}
+{/main}

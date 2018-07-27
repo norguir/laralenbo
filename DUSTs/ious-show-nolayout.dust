@@ -1,0 +1,122 @@
+<nav class="nav">
+  <ul>
+    <li><a href="{@url href="/me/ious"/}">Mes Transactions</a></li>
+    <li class="active"><a href="{@url href="/ious/{iou.id}"/}">Prêt</a></li>
+    <li><a href="{@url href="/ious/{iou.id}/timetable"/}">Echéancier</a></li>
+    <li><a href="{@url href="/ious/{iou.id}/historic"/}"/}">Historique</a></li>
+  </ul>
+</nav>
+
+<div class="c">
+  <h1 class="h h1">
+    {#iou.subject}
+    {.}
+    {:else}
+    {@eq key=session.user.id value=iou.borrower_id}
+    Ma demande d'emprunt du {@moment value="{iou.created_at}" format="'Do MMMM YYYY'"/}
+    {/eq}
+    {@eq key=session.user.id value=iou.lender_id}
+    Ma proposition de prêt du {@moment value="{iou.created_at}" format="'Do MMMM YYYY'"/}
+    {/eq}
+    {/iou.subject}
+  </h1>
+  <p>
+    <a class="a_linkshare" title="Copier dans le presse-papier" data-clipboard-target="#linkshare" data-clipboard-action="copy">
+      <svg role="img" class="icon icon-link"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-link"/></svg>
+      <span id="linkshare" class="icon-text">{@url href="/ious/{iou.id}/share" absolute=true/}</span>
+    </a>
+  </p>
+
+  <div class="summup">
+    <div class="one">
+      <dl>
+      
+        {@eq key="{iou.initiated_by}" value="borrower"}
+        <dt>Emprunteur</dt>
+        {! <dd>{#iou.Borrower}{firstname} {lastname}{:else}Inconnu{/iou.Borrower}</dd> !}
+        <dd>{iou.Borrower.email}</dd>
+        {/eq}
+        {@eq key="{iou.initiated_by}" value="lender"}
+        <dt>Prêteur</dt>
+        {! <dd>{#iou.Lender}{firstname} {lastname}{:else}Inconnu{/iou.Lender}</dd> !}
+        <dd>{iou.Lender.email}</dd>
+        {/eq}
+
+        {! <dt>Avec valeur juridique</dt>
+        <dd>Non</dd> !}
+
+        <dt>Statut du prêt</dt>
+        <dd>{@eq key="{iou.money_released}" value="true"}En cours{:else}Nouveau{/eq}</dd>
+
+        <dt>Statut de la demande</dt>
+        <dd>{#iou.accepted_at}Acceptée{:else}En attente d'acceptation{/iou.accepted_at}</dd>
+
+      </dl> 
+    </div>
+    <div class="two">
+      <dl>
+        <dt>Montant du prêt</dt>
+        <dd>{iou.amount} €</dd>
+
+        <dt>Remboursement</dt>
+        <dd>
+          {@eq key="{iou.repayment_repeat}" value="once"}
+            En {iou.repayment_delay_value} {@select key=iou.repayment_delay_unit}
+              {@eq value="days"}jour(s){/eq}
+              {@eq value="months"}mois{/eq}
+              {@eq value="years"}an(s){/eq}
+            {/select}
+          {/eq}
+          {@eq key="{iou.repayment_repeat}" value="monthly"}
+            {repaymentPerMonth} € /mois
+          {/eq}
+        </dd>
+
+        <dt>Date de fin de remboursement</dt>
+        <dd>{repaymentDeadline}</dd>
+
+        <dt>Contrepartie</dt>
+        <dd>{#iou.compensation}{.}{:else}Aucune{/iou.compensation}</dd>
+        
+        <dt>Reconnaissance de dette</dt>
+        <dd>
+        
+        <a href="{@url href="/doc/{iou.id}"/}">
+          <div class="action">
+            <span class="btn">Téléchargez le PDF certifié</span>
+          </div>
+        </a>
+        </dd>
+
+      </dl>
+    </div>
+  </div>
+</div>
+
+{!<div class="aside">
+  <div class="c">
+    <div class="buttons">
+      <p><a href="{@url href="/doc/{iou.id}"/}" class="btn">Téléchargez le PDF certifié</a></p>
+    </div>
+  </div>
+</div>!}
+
+<script src="https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+
+<script>
+  tippy('.a_linkshare', {
+    theme: 'link',
+    delay: 100,
+    duration: 500,
+    arrowType: "sharp",
+    size: "large",
+    arrow: true,
+    animation: "scale"
+  });
+
+  var clipboard = new ClipboardJS('.a_linkshare');
+  clipboard.on('success', function(e) {
+      e.clearSelection();
+  });
+</script>

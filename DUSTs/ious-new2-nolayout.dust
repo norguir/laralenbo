@@ -1,0 +1,89 @@
+<nav class="nav">
+  <ol>
+    <li><a>Création</a></li>
+    <li class="active"><a>Mes informations</a></li>
+    <li><a>Mon paiement</a></li>
+    <li><a>Partage</a></li>
+  </ol>
+</nav>
+
+<div class="c">
+  <h1 class="h h1">Création de site internet</h1>
+  <p>Charles, vous avez choisi l'option payante avec valeur juridique pour finaliser votre reconnaissance de dette de <strong>1000 euros</strong> auprès de votre prêteur.</p>
+
+  <p class="price">Cette option vous sera facturée 45€.</p>
+
+  <hr>
+</div>
+
+<form>
+  <div class="c">
+    <h2 class="h h2">Merci de compléter vos informations personnelles</h2>
+
+    <p>
+      <label class="field">
+        <em class="label">Nom</em>
+        <input type="text" name="lastname" placeholder="Dupond">
+        {#_settings.messages.body.lastname}
+        <strong>{@select key=code}
+          {@eq value="missing"}{/eq}
+        {/select}</strong>
+        {/_settings.messages.body.lastname}
+      </label>
+    </p>
+
+    <p>
+      <label class="field">
+        <em class="label">Prénom</em>
+        <input type="text" name="firstname" placeholder="Jean">
+        {#_settings.messages.body.firstname}
+        <strong>{@select key=code}
+          {@eq value="missing"}{/eq}
+        {/select}</strong>
+        {/_settings.messages.body.firstname}
+      </label>
+    </p>
+
+    <p>
+      <label class="field">
+        <em class="label">Date de naissance</em>
+        <input type="date" name="birthday" min="" max="{!today - legal_age!}">
+        {#_settings.messages.body.birthday}
+        <strong>{@select key=code}
+          {@eq value="missing"}{/eq}
+        {/select}</strong>
+        {/_settings.messages.body.birthday}
+      </label>
+    </p>
+
+    <fieldset class="fieldset">
+      <legend class="label js">Adresse postale</legend>
+      
+      <p>
+        <label class="field floatlabel">
+          <em class="label">Rue</em>
+          <input type="text" name="street" placeholder="5, rue de la Coline">
+        </label>
+      </p>
+      <p>
+        <label class="field floatlabel">
+          <em class="label">Code postal</em>
+          <input type="number" name="zipcode" maxlength="5" placeholder="XXXXX">
+        </label>
+      </p>
+      <p>
+        <label class="field floatlabel">
+          <em class="label">Ville</em>
+          <input type="text" name="city" placeholder="">
+        </label>
+      </p>
+
+    </fieldset>
+
+    <p class="submit">
+      <button type="submit" class="btn">Enregistrer</button>
+    </p>
+
+  </div>
+
+</form>

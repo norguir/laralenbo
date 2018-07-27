@@ -1,0 +1,25 @@
+<div class="c">
+  <h1 class="h h1">
+    {!{>"partials/logo.svg.dust"/}!}
+    Le prêt de confiance<br class="br">
+  </h1>
+  <p class="desc">
+    Vos prêts entre proches<br class="br"> 
+    en toute sérénité<br class="br">
+  </p>
+
+  <p>
+    <a href="{@url href="/ious/new"/}" class="btn start-btn">Commencer</a>
+  </p>
+
+  <p class="contactus">
+    <a href="mailto:hello@lenbo.fr" class="btn round">
+      <svg role="img" class="icon icon-email"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-email"/></svg>
+    </a>
+  </p>
+
+  <p class="copyright">
+    Tous droits réservés Lenbo 2018
+    <a href="{@url href="/cgu"/}">Conditions Générales d'Utilisation</a>
+  </p>
+</div>

@@ -1,0 +1,8 @@
+{>"layout.dust"/}
+
+{<title}{/title}
+{<page}page-ious-myinfo{/page}
+
+{<main}
+{>"ious-myinfo-nolayout.dust"/}
+{/main}

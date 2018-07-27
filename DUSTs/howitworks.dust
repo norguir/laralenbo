@@ -1,0 +1,8 @@
+{>"layout.dust"/}
+
+{<title}Comment ça marche, les avantages du prêt Lenbo{/title}
+{<page}page-howitworks{/page}
+
+{<main}
+{>"howitworks-nolayout.dust"/}
+{/main}

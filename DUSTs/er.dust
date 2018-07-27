@@ -1,0 +1,37 @@
+{>"layout.dust"/}
+
+{<title}{status}{/title}
+{<page}page-er{/page}
+
+{<main}
+<div class="c">
+  <span class="status">{status}</span>
+  <h1>
+    <span class="message">
+      {@select key="{status}"}
+        {@eq value="404"}Page introuvable{/eq}
+        {@eq value="403"}Vous n'êtes pas autorisé(e) à consulter cette page{/eq}
+        {@eq value="500"}Le serveur a rencontré un problème. Veuillez réessayer ultérieurement{/eq}
+        {@none}{message}{/none}
+      {/select}
+    </span>
+    <a href="{@url href="/auth"/}" class="btn">S'identifier</a>
+  </h1>
+  {@eq key="{settings.env}" value="development"}
+  {#stack}
+  <pre class="stack">{.}</pre>
+  {/stack}
+  {/eq}
+
+  <p class="contactus">
+    <a href="mailto:hello@lenbo.fr" class="btn round">
+      <svg role="img" class="icon icon-email"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-email"/></svg>
+    </a>
+  </p>
+
+  <p class="copyright">
+    Tous droits réservés Lenbo.fr 2018
+    <a href="{@url href="/cgu"/}">Conditions Générales d'Utilisation</a>
+  </p>
+</div>
+{/main}

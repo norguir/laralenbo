@@ -1,0 +1,96 @@
+<nav class="nav">
+  <ul>
+    <li><a href="{@url href="/me/ious"/}">Mes Transactions</a></li>
+    <li><a href="{@url href="/ious/{iou.id}"/}">Prêt</a></li>
+    <li class="active"><a href="{@url href="/ious/{iou.id}/timetable"/}">Echéancier</a></li>
+    <li><a href="{@url href="/ious/{iou.id}/historic"/}">Historique</a></li>
+  </ul>
+</nav>
+
+<div class="c">
+  <h1 class="h h1">
+    {#iou.subject}
+    {.}
+    {:else}
+    {@eq key=session.user.id value=iou.borrower_id}
+    Ma demande d'emprunt du {@moment value="{iou.created_at}" format="'Do MMMM YYYY'"/}
+    {/eq}
+    {@eq key=session.user.id value=iou.lender_id}
+    Ma proposition de prêt du {@moment value="{iou.created_at}" format="'Do MMMM YYYY'"/}
+    {/eq}
+    {/iou.subject}
+  </h1>
+
+  <div class="summup">
+    <div class="timetableInfo">
+        <p>Montant emprunté : {iou.amount} € 
+        
+            {@eq key="{iou.repayment_repeat}" value="once"}
+                sur {iou.repayment_delay_value} {@select key=iou.repayment_delay_unit}
+                {@eq value="days"}jour(s){/eq}
+                {@eq value="months"}mois{/eq}
+                {@eq value="years"}an(s){/eq}
+                {/select}
+            {/eq}
+            {@eq key="{iou.repayment_repeat}" value="monthly"}
+                sur {iou.repayment_delay_value} mois
+            {/eq}
+        
+        </p>
+    </div>
+    <table class="table display hover timetable" data-paging="true id="timetable">
+    </table>
+    </br>
+  </div>
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" /> 
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>    
+
+<script>
+
+    var dataSet = [];
+    {#dataset}
+        dataSet.push([{num}, "{date}", "{amount}", "{refunded}", "{payment}"]);
+    {/dataset}
+
+    $('.table').DataTable( {
+        "language": {
+            "lengthMenu": "Display _MENU_ records per page",
+            "zeroRecords": "Aucune donnée",
+            "info": "Affichage de la page _PAGE_ sur _PAGES_",
+            "infoEmpty": "Aucune donnée disponible",
+            "paginate": {
+                "previous": "Précédent",
+                "next": "Suivant",
+            }
+        }, 
+        "fnDrawCallback": function(oSettings) {
+            if (dataSet.length <= 12) {
+                $('.dataTables_paginate').hide();
+                $('.dataTables_info').hide();
+            }            
+        },       
+        "searching": false,
+        "filter": true,
+        "ordering": false,
+        "lengthChange": false,
+        "pageLength": 12,
+        "data" : dataSet,
+        "columns": [
+            { title: "Echéance", className: 'dt-center' },
+            { title: "Date de remboursement", className: 'dt-center' },
+            { title: "Capital restant dû", className: 'dt-center' },
+            { title: "Capital remboursé", className: 'dt-center' },
+            { title: "Montant échéance", className: 'dt-center' }
+        ]
+      } );
+      
+      $("thead th").css("border-bottom","0px solid #000");
+      $.fn.dataTable.ext.classes.sPageButton = 'button btn'
+
+</script>

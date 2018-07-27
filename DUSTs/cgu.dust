@@ -1,0 +1,8 @@
+{>"layout.dust"/}
+
+{<title}CGU{/title}
+{<page}page-cgu{/page}
+
+{<main}
+{>"cgu-nolayout.dust"/}
+{/main}

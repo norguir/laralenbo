@@ -1,0 +1,115 @@
+<nav class="nav">
+  <ol>
+    <li><a>Création</a></li>
+    <li class="active"><a>Mes informations</a></li>
+    <li><a>Partage</a></li>
+  </ol>
+</nav>
+
+<div class="c">
+  <h1 class="h h1">Mes Informations</h1>
+  <hr>
+  <form action="/ious/{iouid}/new" method="post">
+    
+      <fieldset>
+        <input id="updateInfo" name="updateInfo" type="hidden" value="true">
+        <p>
+          <label class="field floatlabel">
+            <em class="label">Prénom</em>
+            <input type="text" name="firstname" placeholder="Jean" value="{user.firstname}">
+          </label>
+          <strong class="er">Manquant</strong>
+        </p>
+
+        <p>
+          <label class="field floatlabel">
+            <em class="label">Nom</em>
+            <input type="text" name="lastname" placeholder="Dupond" value="{user.lastname}">
+          </label>
+          <strong class="er">Manquant</strong>
+        </p>
+
+        <p>
+          <label class="field floatlabel">
+            <em class="label">Date de naissance</em>
+            <input type="date" name="birthday" placeholder="YYYY-MM-DD" value="
+            {#user.birthday}
+              {@moment value="{.}" format="'YYYY-MM-DD'"}{$moment}{:else}{.}{/moment}
+            {:else}
+            {/user.birthday}">
+          </label>
+          <strong class="er">Manquant</strong>
+        </p>
+
+        <p>
+          <label class="field floatlabel">
+            <em class="label">Email</em>
+            <input type="email" name="email" value="{user.email}" {#user.email}disabled{/user.email}>
+          </label>          
+        </p>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend class="label js">Votre adresse</legend>
+        
+        <div class="p">
+          <label class="field floatlabel">
+            <em class="label">Rue</em>
+            <input type="text" name="street" placeholder="5, rue de la Coline" value="{user.street}">
+          </label>
+          <strong class="er">Manquant</strong>
+        </div>
+        <p>
+          <label class="field floatlabel">
+            <em class="label">Code postal</em>
+            <input type="number" name="zip" maxlength="5" placeholder="XXXXX" value="{user.zip}">
+          </label>
+          <strong class="er">Manquant</strong>
+        </p>
+        <p>
+          <label class="field floatlabel">
+            <em class="label">Ville</em>
+            <input type="text" name="city" placeholder="" value="{user.city}">
+          </label>
+          <strong class="er">Manquant</strong>
+        </p>
+      </fieldset>
+
+      <p class="submit">
+        <button type="submit" class="btn" onclick="formcheck(); return false">Suivant</button>
+      </p>
+      
+  </form>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+
+  function formcheck() {
+
+    var fields = $(".field")
+        .find("input").serializeArray();
+  
+    var errTitles = $('strong');
+    
+    var submit = true;
+    $.each(fields, function(i, field) {
+      if (!field.value) {
+        $(errTitles[i]).show();
+        submit = false;
+      }
+      else {
+        $(errTitles[i]).hide();
+      }
+    }); 
+
+    if (submit) {
+      $( "form" ).submit();
+    }
+  }
+  
+  $(function() {
+    formcheck();
+  });
+
+</script>

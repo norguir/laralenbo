@@ -1,0 +1,35 @@
+<div class="c">
+  <div class="one-and-two">
+    <div class="one">
+      <p class="h h1">
+        <strong>Lenbo</strong>,<br> 
+        le prêt de confiance<br> 
+      </p>
+
+      <p>Envoyez votre demande de prêt à qui vous voulez.</p>
+    </div><div class="two">
+      <div class="methods">
+        <h1 class="h h1">Bienvenue !</h1>
+        <p>
+          <a href="{@url href="/sessions/facebook"}
+           {$url}?{@querymerge q1=_settings.querystring q2="next={_settings.query.next|uc}"/}
+          {/url}" class="btn facebook">Continuer avec Facebook</a>
+        </p>
+        <p>
+          <a href="{@url href="/sessions/google"}
+           {$url}?{@querymerge q1=_settings.querystring q2="next={_settings.query.next|uc}"/}
+          {/url}" class="btn google">Continuer avec Google</a>
+        </p>
+        <p class="email">
+          ou bien <a href="{@url href="/auth/email"}
+           {$url}?{@querymerge q1=_settings.querystring q2="next={_settings.query.next|uc}"/}
+          {/url}">continuer avec votre email</a>
+        </p>
+      </div>
+
+      <a class="close" href="{@url href="/"/}">
+        <svg role="img" class="icon icon-close"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-close"/></svg>
+      </a>
+    </div>
+  </div>
+</div>

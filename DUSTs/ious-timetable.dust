@@ -1,0 +1,22 @@
+{>"layout.dust"/}
+
+{<title}
+  {#iou.subject}
+  {.}
+  {:else}
+  {@eq key=session.user.id value=iou.borrower_id}
+  Ma demande d'emprunt du {@moment value="{iou.created_at}" format="'Do MMMM YYYY'"/}
+  {/eq}
+  {@eq key=session.user.id value=iou.lender_id}
+  Ma proposition de prêt du {@moment value="{iou.created_at}" format="'Do MMMM YYYY'"/}
+  {/eq}
+  {/iou.subject}
+{/title}
+{<page}page-ious-timetable{/page}
+
+{<main}
+{>"ious-timetable-nolayout.dust"/}
+{/main}
+
+<script>
+</script>

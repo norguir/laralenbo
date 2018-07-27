@@ -1,0 +1,134 @@
+<nav class="nav">
+  <ol>
+    <li><a>Création</a></li>
+    <li><a>Mes informations</a></li>
+    <li class="active"><a>Partage</a></li>
+  </ol>
+</nav>
+
+<div class="done"><div class="c">
+  <div class="icon-and-h1">
+    <h1 class="h h1">
+      <svg role="img" class="icon icon-tick"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-tick"/></svg>
+      <span class="icon-text">Tout est prêt !</span>
+    </h1>
+  </div>
+
+  <p>Il ne vous reste plus qu’à envoyer votre demande.</p>
+</div></div>
+
+<div class="c">
+  <div class="summup">
+    <div class="one">
+      <div class="title">
+        {#iou.subject}
+        {.}
+        {:else}
+        Ma proposition
+        {/iou.subject}
+      </div>
+
+      <dl>
+        {@eq key="{iou.initiated_by}" value="borrower"}
+        <dt>Emprunteur</dt>
+        {! <dd>{#iou.Borrower}{firstname} {lastname}{:else}Inconnu{/iou.Borrower}</dd> !}
+        <dd>{iou.Borrower.email}</dd>
+        {/eq}
+        {@eq key="{iou.initiated_by}" value="lender"}
+        <dt>Prêteur</dt>
+        {! <dd>{#iou.Lender}{firstname} {lastname}{:else}Inconnu{/iou.Lender}</dd> !}
+        <dd>{iou.Lender.email}</dd>
+        {/eq}
+
+        {! <dt>Avec valeur juridique</dt>
+        <dd>Non</dd> !}
+
+        <dt>Statut du prêt</dt>
+        <dd>{@eq key="{iou.money_released}" value="true"}En cours{:else}Nouveau{/eq}</dd>
+
+        <dt>Statut de la demande</dt>
+        <dd>{#iou.accepted_at}Acceptée{:else}En attente d'acceptation{/iou.accepted_at}</dd>
+
+        <dt>Echéancier</dt>
+        <dd>
+        <a href="{@url href="/ious/{iou.id}/timetable"/}">        
+          <div class="action">
+            <span class="btn">Voir tableau</span>
+          </div>
+        </a>
+        </dd>
+      </dl>
+    </div>
+    <div class="two">
+      <dl>
+        <dt>Montant du prêt</dt>
+        <dd>{iou.amount} €</dd>
+
+        <dt>Remboursement</dt>
+        <dd>
+          {@eq key="{iou.repayment_repeat}" value="once"}
+            En {iou.repayment_delay_value} {@select key=iou.repayment_delay_unit}
+              {@eq value="days"}jour(s){/eq}
+              {@eq value="months"}mois{/eq}
+              {@eq value="years"}an(s){/eq}
+            {/select}
+          {/eq}
+          {@eq key="{iou.repayment_repeat}" value="monthly"}
+            {repaymentPerMonth} € /mois
+          {/eq}
+        </dd>
+
+        <dt>Date de fin de remboursement</dt>
+        <dd>{repaymentDeadline}</dd>
+
+        <dt>Contrepartie</dt>
+        <dd>{#iou.compensation}{.}{:else}Aucune{/iou.compensation}</dd>
+
+        <dt>Reconnaissance de dette</dt>
+        <dd>
+        
+        <a href="{@url href="/doc/{iou.id}"/}">
+          <div class="action">
+            <span class="btn">Téléchargez le PDF certifié</span>
+          </div>
+        </a>
+        </dd>
+
+      </dl>
+    </div>
+  </div>
+  {! <p class="nb">Attention, ce document ne sera valide qu'après acceptation et signature électronique de votre prêteur</p> !}
+</div>
+
+<div class="aside c">
+  <h2 class="h h2">Copier ce lien pour partager la demande.</h2>
+
+  <div class="input-and-copy">
+    <p class="input">
+      <a class="a_linkshare" id="linkshare" title="Copier dans le presse-papier" data-clipboard-target="#linkshare" data-clipboard-action="copy" href="{@url href="/ious/{iou.id}/share"/}" onclick="return false;">{@url href="/ious/{iou.id}/share" absolute="true"/}</a>
+    </p>
+    <p class="copy">
+      <a href="{@url href="/ious/{iou.id}"/}" class="btn">Suivre ma demande</a>
+    </p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/tippy.js@2.5.3/dist/tippy.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+
+<script>
+  tippy('.a_linkshare', {
+    theme: 'link',
+    delay: 100,
+    duration: 500,
+    arrowType: "sharp",
+    size: "large",
+    arrow: true,
+    animation: "scale"
+  });
+
+  var clipboard = new ClipboardJS('.a_linkshare');
+  clipboard.on('success', function(e) {
+      e.clearSelection();
+  });
+</script>

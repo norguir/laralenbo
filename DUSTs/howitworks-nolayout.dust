@@ -1,0 +1,295 @@
+<nav class="nav">
+  <ul>
+    <li><a href="#principle" class="target-from" data-target-group="anchor" data-target-scroll="true">Comment ça marche</a></li>
+    <li><a href="#features" data-target-group="anchor" data-target-scroll="true">Les avantages Lenbo</a></li>
+    <li><a href="#faq" data-target-group="anchor" data-target-scroll="true">FAQ</a></li>
+    <li><a href="#lenboandyou" data-target-group="anchor" data-target-scroll="true">Lenbo et vous</a></li>
+  </ul>
+</nav>
+
+<section id="principle"><div class="c">
+  <h1 class="h h1">Comment ça marche ?</h1>
+
+  <ol>
+    <li>
+      <div class="num-and-img">
+        <div class="imgout"><div style="background-image:url(paperplane.svg);"></div></div>
+      </div>
+      <div class="text">
+        <p>Je crée ma demande de prêt avec échéancier et reconnaissance de dette personnalisée</p>
+      </div>
+    </li>
+    <li>
+      <div class="num-and-img">
+        <div class="imgout"><div style="background-image:url(signature.svg);"></div></div>
+      </div>
+      <div class="text">
+        <p>Je partage au destinataire pour acceptation</p>
+      </div>
+    </li>
+    <li>
+      <div class="num-and-img">
+        <div class="imgout"><div style="background-image:url(calendarprotected.svg);"></div></div>
+      </div>
+      <div class="text">
+        <p>Lenbo enregistre le prêt validé avec l'échéancier, crée la reconnaissance de dette finale, gère les rappels de remboursements</p>
+      </div>
+    </li>
+  </ol>
+
+  <hr>
+</div></section>
+
+<section id="features"><div class="c">
+  <h2 class="h h1">Les avantages Lenbo</h2>
+
+  <article>
+    <h3 class="h h2">Simplicité</h3>
+    <p>La manière la plus confortable de conclure un prêt entre proches en quelques clics et à distance.</p>
+  </article>
+
+  <article>
+    <h3 class="h h2">Confiance et transparence</h3>
+    <p>Un prêt sans malentendu grâce à un échéancier prévu à l'avance, une reconnaissance de dette bêton, des rappels automatiques, et des conseils personnalisés.</p>
+  </article>
+
+  <article>
+    <h3 class="h h2">Sécurité et confidentialité</h3>
+    <p>L’ensemble de vos données sont cryptées et protégées, et chaque prêt reste strictement confidentiel.</p>
+  </article>
+
+  {! <article>
+    <div class="imgout"><img src="" alt></div>
+  </article> !}
+
+  <hr>
+</div>
+</section>
+
+<section id="faq">  
+  <div class="c">
+    <h2 class="h h1">Questions fréquentes des emprunteurs</h2>
+  </div>
+
+  <ul>
+    <li id="faq-q1"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q1" data-target-group="faq">1. Pour quels types de prêts peut-on utiliser Lenbo ?</a></h3>
+        <div>
+          <p>Les prêts Lenbo peuvent servir à financer tous types de besoins : voiture, travaux, love money pour un projet, voyage, mariage, études, formation, achats spécifiques, trésorerie, rachat de crédit, etc. Tous les prêts conclus sur Lenbo sont sont conclus entre personnes de connaissance et à titre gratuit par les prêteurs, c’est-à-dire sans taux d’intérêt.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q2"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q2" data-target-group="faq">2. Quelles sont les limites de montant et de durée d’un prêt Lenbo ?</a></h3>
+        <div>
+          <p>Une demande de prêt peut être comprise entre 100€ et 20 000€ et porter sur une durée maximum de 5 ans.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q3"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q3" data-target-group="faq">3. Qui peut emprunter ?</a></h3>
+        <div>
+          <p>Le service est ouvert à toute personne physique et majeure, ne faisant l’objet d’aucune mesure d’incapacité juridique.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q4"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q4" data-target-group="faq">4. Comment évaluer ma capacité de remboursement ?</a></h3>
+        <div>
+          <p>Selon votre situation financière et la durée du financement souhaité, votre capacité de remboursement peut varier fortement. Il est indispensable de l’évaluer afin d’éviter toutes situations d’insolvabilité et de surendettement. Nous vous proposons ici une méthode simple et efficace.</p>
+          <p>Commencez par calculer votre <b>"Reste A Vivre"</b></p>
+          <ul>
+            <li>+ Revenu mensuel du foyer (salaire, versements, allocations)</li>
+            <li>- Loyer</li>
+            <li>- Charges (électricité, eau, gaz)</li>
+            <li>- Abonnements</li>
+            <li>- Assurances</li>
+            <li>- Echéances de crédit en cours</li>
+            <li>- Autres charges courantes</li>
+            <li><b>= Votre reste à vivre mensuel</b></li>
+          </ul>
+
+          <p> Avec ce montant, vous devrez être capable de faire 2 choses :<br>
+            1) Vivre - notamment vous nourrir, vous déplacer, vous divertir. Regarder combien cela vous a coûté en moyenne sur les derniers mois<br>
+            2) Rembourser votre prêt
+          </p>
+          
+          <p>Pensez à prendre en compte que certains évènements et dépenses exceptionnelles pourraient également affecter votre budget
+          </p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q5"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q5" data-target-group="faq">5. Puis-je rembourser de manière flexible ?</a></h3>
+        <div>
+          <p>Oui. Lorsque vous formulez créez votre demande de prêt, vous choisissez le mode de remboursement qui vous convient : « Délai de remboursement » ou « Remboursement mensuel ».</p>
+          <p>En mode délai de remboursement, vous définissez la date limite de fin de remboursement et vous pouvez effectuer vos remboursements librement jusqu’à cette date.</p>
+          <p>En mode remboursement mensuel, vous choisissez le montant de vos mensualités et la durée du prêt s’affiche automatiquement.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q6"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q6" data-target-group="faq">6. Que se passe-t-il si j’ai signé ma reconnaissance de dette, mais que je n’ai pas reçu le prêt ?</a></h3>
+        <div>
+          <p>Pas d’inquiétude, la reconnaissance de dette Lenbo a été rédigée par un avocat en prévoyant ce cas de figure. Votre obligation de remboursement n’est valable que si vous avez reçu le prêt. En cas de litige, c’est le prêteur qui devra fournir la preuve du versement (extrait de relevé de compte par exemple).</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q7"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q7" data-target-group="faq">7. Que se passe-t-il si ma demande est refusée par le destinataire ?</a></h3>
+        <div>
+          <p>Votre demande reste ouverte et vous pouvez l’envoyer à quelqu’un d’autre.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q8"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q8" data-target-group="faq">8. Comment faire si je ne peux pas honorer mon remboursement dans les temps ?</a></h3>
+        <div>
+          <p>Prévenez tout simplement le prêteur. Cela permet de préserver la sérénité de vos relations et au prêteur de s’organiser. Il a également la possibilité de vous accorder un délai supplémentaire de remboursement depuis son espace de suivi. Dans tous les cas, un bon dialogue avec votre prêteur est indispensable.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q9"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q9" data-target-group="faq">9. Que faire en cas d’impayés à la date finale de remboursement ?</a></h3>
+        <div>
+          <p>En cas de persistance d’impayés à la date finale de remboursement, le prêteur a trois possibilités :</p>
+          <ul>
+            <li>Attendre le remboursement ;</li>
+            <li>Vous accorder un délai ;</li>
+            <li>Vous adresser une mise en demeure (celle-ci vous attribue un délai automatique de 30 jours pour solder vos impayés) puis, si nécessaire, faire appel à un huissier pour obtenir son recouvrement.</li>
+          </ul>
+          <p>En parallèle, Lenbo vous apporte des conseils personnalisés pour rétablir votre situation.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q10"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q10" data-target-group="faq">10.  Puis-je avoir plusieurs prêteurs pour un seul prêt ?</a></h3>
+        <div>
+          <p>Non, les prêts Lenbo sont uniquement conclus en toute confidentialité entre un prêteur et un emprunteur.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q11"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q11" data-target-group="faq">11.  Puis-je bénéficier de plusieurs prêts en même temps sur Lenbo ?</a></h3>
+        <div>
+          <p>Non. Vous devez avoir remboursé votre prêt pour contracter un nouveau prêt. Vous pouvez réaliser autant de prêts successifs que vous le souhaitez et vous pouvez également prêter à votre tour.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q12"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q12" data-target-group="faq">12.  Dois-je déclarer mon prêt ?</a></h3>
+        <div>
+          <p>En effet, au-delà de 760€ de prêt reçu au cours d’une année, il vous faut déclarer cette somme à l’aide du formulaire cerfa 2062 dans le cadre de votre déclaration de revenus. N’ayez cependant aucune inquiétude, cette déclaration n’entraîne aucun impôt. Au contraire elle vous protège, vous et le prêteur, en cas de contrôle fiscal de toute requalification du prêt en donation soumise à une taxe spécifique.</p>
+        </div>
+      </article>
+    </div></li>
+
+    </br>
+    <div class="c">
+      <h2 class="h h1">Questions fréquentes des prêteurs</h2>
+    </div>
+
+    <ul>
+    <li id="faq-q13"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q13" data-target-group="faq">13.  Est-ce vraiment légal de prêter de l’argent à un proche ?</a></h3>
+        <div>
+          <p>Parfaitement, à condition de respecter quelques conditions que Lenbo vous permet de remplir sans même vous en rendre compte. Ces conditions incluent notamment les règles imposées par le monopole bancaire et des obligations de formalisation. Afin de vous prémunir de toute infraction pénale, les prêts Lenbo sont consentis sans taux d’intérêt et vous disposez de votre reconnaissance de dette personnalisée et rédigée par un avocat, que l’emprunteur doit signer.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q14"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q14" data-target-group="faq">14.  Quels sont mes droits en tant que prêteur ?</a></h3>
+        <div>
+          <p>La reconnaissance de dette éditée par Lenbo et signée par l’emprunteur constitue un moyen de preuve légal, qui permet de prouver que vous avez prêté à l’emprunteur la somme visée dans l’acte et qu’il s’est engagé à vous la rembourser selon les modalités qui ont été convenues entre vous et stipulées dans l’acte. En cas de litige, il vous suffira de produire la preuve du versement du prêt, que nous vous recommandons donc de verser par virement bancaire.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q15"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q15" data-target-group="faq">15.  Quels sont les risques et les garanties d’un prêt conclu via Lenbo ?</a></h3>
+        <div>
+          <p>Un prêt, même consenti à un proche, représente un risque de perte de toute ou partie de la somme. Lenbo vous apporte confiance et transparence pour effectuer votre prêt, mais le service n’apporte aucune garantie du remboursement par l’emprunteur. En cas de difficultés liées au remboursement, Lenbo vous aide à prouver l’existence du prêt, vous apporte les informations et conseils nécessaires et accompagne l’emprunteur afin de l’aider à respecter ses engagements dans les meilleures conditions.</p>
+          <p>Il est fortement recommandé de ne prêter qu’à des personnes de confiance et d’enrichir votre décision en discutant avec l’emprunteur de ses besoins et de ses projets pour vous rembourser. Refuser une demande de prêt peut parfois être un service rendu à l’emprunteur.</p>
+        </div>
+      </article>
+    </div></li>
+    <li id="faq-q16"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q16" data-target-group="faq">16.  Comment faire si je n’ai pas reçu mon remboursement ?</a></h3>
+        <div>
+          <p>Nous encourageons le dialogue entre prêteur et emprunteur afin d’éviter les surprises et de préserver la confiance. De plus, nous apportons des conseils et bons plans aux emprunteurs lorsque nous identifions des difficultés de remboursement afi de les aider à respecter leurs obligations.</p>
+          <p>En cas d’impayé persistant, vous disposez encore de trois possibilités :</p>
+          <ul>
+            <li>Attendre votre remboursement ;</li>
+            <li>Accorder un délai ;</li>
+            <li>Adresser une mise en demeure à l’emprunteur (celle-ci lui attribue un délai automatique de 30 jours pour solder ses impayés) puis faire appel à un huissier pour obtenir le recouvrement.</li>
+          </ul>
+        </div>
+      </article>
+    </div></li>
+    
+    </br>
+    <div class="c">
+      <h2 class="h h1">Sécurité et confidentialité</h2>
+    </div>
+
+    <ul>
+    <li id="faq-q17"><div class="c">
+      <article>
+        <h3 class="h h2"><a href="#faq-q17" data-target-group="faq">17. Politique de confidentialité</a></h3>
+        <div>
+          <p>Nos standards de sécurités sont donc particulièrement élevés et nos services en ligne sont cryptés selon le protocole https.</p>
+          <p>Pour mettre en œuvre nos services à votre attention, nous collectons et stockons le strict minimum d’informations vous concernant : adresse email, nom, prénom, date de naissance, adresse postale.</p>
+          <p>Les informations stockées par Lenbo sont utilisées pour vous identifier et pour personnaliser la reconnaissance de dette liées à votre prêt. Vous disposez à tout moment d’un droit de rectification de suppression de ces données.</p>
+          <p>Vous pouvez également supprimer votre compte, à la condition de ne pas être engagé dans un prêt en cours auquel cas vous devrez attendre le remboursement et donc la fin de ce prêt pour clôturer votre compte.</p>
+        </div>
+      </article>
+    </div></li>
+  </section>
+
+  <section id="lenboandyou">
+    <div class="c">
+      <h1 class="h h1">Lenbo et vous</h1>
+      <table>
+        <td width="90%">
+          <p>Nous répondons à toutes vos questions sur le fonctionnement du service et sur vos prêts entre connaissances, et nous vous mettons en relation avec un avocat spécialisé en contentieux lorsque vous en avez besoin. 
+        </td>
+        <td width="10%" align="right">
+          <p>
+            </br></br></br>
+            <a href="mailto:hello@lenbo.fr" class="btn round"><svg role="img" class="icon icon-email"><use xlink:href="/7e870dfb6861fad0d79852f916591968/icons.svg#icon-email"></use></svg></a>
+          </p>
+        </td>
+      </table>
+    </div>
+  </section>
+
+<div id="footer"><div class="c">
+  <h2>Suivez-nous</h2>
+  <p>Nous vous tenons informés de toutes les nouveautés de LENBO et partageons avec vous nos conseils et les actualités sur le prêt entre particuliers.</p>
+  <p class="socials">
+    <a href="https://www.facebook.com/LenBoApp/" class="btn round">
+      <svg role="img" class="icon icon-facebook"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-facebook"/></svg>
+    </a>
+    <a href="https://twitter.com/LenBoApp" class="btn round">
+      <svg role="img" class="icon icon-twitter"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-twitter"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/lenbo/" class="btn round">
+      <svg role="img" class="icon icon-twitter"><use xlink:href="{@url href="/icons.svg" md5="true"/}#icon-linkedin"/></svg>
+    </a>
+  </p>
+</div></div>
