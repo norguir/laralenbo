@@ -1600,7 +1600,7 @@ License - nucleoapp.com/license/
 @font-face {
   font-family: 'nucleo-icons';
   src: url("../fonts/nucleo-icons.eot");
-  src: url("../fonts/nucleo-icons.eot") format("embedded-opentype"), url("../fonts/nucleo-icons.woff2") format("woff2"), url("../fonts/nucleo-icons.woff") format("woff"), url("../fonts/nucleo-icons.ttf") format("truetype"), url("../fonts/nucleo-icons.svg") format("svg");
+  src: url("../fonts/nucleo-icons.eot") format("embedded-opentype"), url("../fonts/nucleo-icons.woff2") format("woff2"), url("../fonts/nucleo-icons.woff") format("woff"), url("../fonts/nucleo-icons.ttf") format("truetype")/*, url("../fonts/nucleo-icons.svg") format("svg")*/;
   font-weight: normal;
   font-style: normal;
 }
@@ -10416,7 +10416,7 @@ video {
 .pswp__button,
 .pswp__button--arrow--left:before,
 .pswp__button--arrow--right:before {
-  background: url(../../../../../assets/img/kit/pro/photo_swipe/default-skin.png) 0 0 no-repeat;
+  /*background: url(../../../../../assets/img/kit/pro/photo_swipe/default-skin.png) 0 0 no-repeat;*/
   background-size: 264px 88px;
   width: 44px;
   height: 44px;
@@ -10429,7 +10429,7 @@ video {
   .pswp--svg .pswp__button,
   .pswp--svg .pswp__button--arrow--left:before,
   .pswp--svg .pswp__button--arrow--right:before {
-    background-image: url(../../../../../assets/img/kit/pro/photo_swipe/default-skin.svg);
+    /*background-image: url(../../../../../assets/img/kit/pro/photo_swipe/default-skin.svg);*/
   }
   .pswp--svg .pswp__button--arrow--left,
   .pswp--svg .pswp__button--arrow--right {
@@ -10735,7 +10735,7 @@ a.pswp__share--download:hover {
 
 .pswp__preloader--active .pswp__preloader__icn {
   /* We use .gif in browsers that don't support CSS animation */
-  background: url(../../../../../assets/img/kit/pro/photo_swipe/preloader.gif) 0 0 no-repeat;
+  /*background: url(../../../../../assets/img/kit/pro/photo_swipe/preloader.gif) 0 0 no-repeat;*/
 }
 
 .pswp--css_animation .pswp__preloader--active {
@@ -11378,7 +11378,7 @@ a.pswp__share--download:hover {
 .section-isometricGrids .pater::before {
   content: '';
   position: absolute;
-  background: url(../img/ink.png) no-repeat top left;
+  /*background: url(../img/ink.png) no-repeat top left;*/
   width: 491px;
   height: 332px;
   top: -80px;
@@ -14966,7 +14966,7 @@ License - nucleoapp.com/license/
 @font-face {
   font-family: 'nucleo-icons';
   src: url("../fonts/nucleo-icons.eot");
-  src: url("../fonts/nucleo-icons.eot") format("embedded-opentype"), url("../fonts/nucleo-icons.woff2") format("woff2"), url("../fonts/nucleo-icons.woff") format("woff"), url("../fonts/nucleo-icons.ttf") format("truetype"), url("../fonts/nucleo-icons.svg") format("svg");
+  src: url("../fonts/nucleo-icons.eot") format("embedded-opentype"), url("../fonts/nucleo-icons.woff2") format("woff2"), url("../fonts/nucleo-icons.woff") format("woff"), url("../fonts/nucleo-icons.ttf") format("truetype")/*, url("../fonts/nucleo-icons.svg") format("svg")*/;
   font-weight: normal;
   font-style: normal;
 }

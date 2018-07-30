@@ -80,11 +80,7 @@
   </nav>
   <!-- End Navbar -->
 
-  <div class="section" >
-    <div class="" style="background-image: url({{ asset('images/3hands-square_x1500.png') }}); background-position: right center;">
-      @yield('content') 
-    </div>
-  </div>    
+  @yield('content') 
 
 <footer class="footer footer-big">
   <div class="container">

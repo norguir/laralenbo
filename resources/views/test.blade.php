@@ -3,21 +3,26 @@
 
 @section('content')
 
-<div class="page-header" style="background-image: url({{ asset('images/3hands-square_x1500.png') }}); background-position: right center;">
-  <div class="filter"></div>
-  <div class="content-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 text-left">
-          <h1 class="title">Le prêt de confiance</h1>
-              <h5>Vos prêts entre proches en toute sérénité</h5>
-          <div class="buttons d-flex justify-content-left py-5">
-            <a class="btn btn-primary btn-round btn-lg" href="{{ route('ious-new') }}"  aria-haspopup="true" aria-expanded="false">Commencer</a>
+  {{-- <div class="section" style="background-image: url('../images/3hands-square_x1500.png');
+  background-position: right center;">
+
+    <div class="container" style="min-height: 100vh;height: 100%;">
+  
+
+      <div class="background">
+    
+        <div class="row"> --}}
+
+          <div class="col-sm-6 col-lg-3">
+            <div class="tim-title">
+                <h3>Sliders</h3>
+            </div>
+            <div id="sliderRegular" class="slider noUi-target noUi-ltr noUi-horizontal noUi-connect"></div>
+            <br/>
+            <div id="sliderDouble" class="slider slider-info noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
           </div>
-        </div>
+          
+        {{-- </div>
       </div>
     </div>
-  </div>
-</div>
-  
-@endsection
+  </div> --}}

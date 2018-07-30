@@ -1,11 +1,18 @@
 
 
 // Variables
-/*@import "variables";*/
+@import "_variables";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-/*@import '../css/paper-kit.css';*/
+/*
+@import "../fonts/fontawesome/scss/fontawesome.scss";
+@import "../fonts/fontawesome/scss/regular.scss";
+@import "../fonts/fontawesome/scss/solid.scss";
+*/
+
 @import '../paper-kit/assets/scss/paper-kit.scss';
-/*@import '../css/lenbo.css';*/
+
+
+/* @import '../css/lenbo.css'; */
