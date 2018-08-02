@@ -31,7 +31,7 @@
 
 .left-column {
   background-color: rgba(255, 255, 255, 1);
-  border-radius: 8px;
+  border-radius: 8px 0 0 8px;
   
   border: 1px solid #ccc;
 
@@ -39,56 +39,6 @@
   min-height: 500px;
   padding: 30px;
 }
-
-.card-simulator {
-  background-color: #FF8F5E;
-  border-radius: 8px;
-  color: #fff;
-  
-  margin: 20px 0 70px;
-  min-height: 500px;
-  padding: 30px;
-}
-
-
-.card-simulator label {
-  margin-top: 15px;
-}
-
-.card-simulator .card-title {
-  color: #B33C12;
-  text-align: center;
-}
-
-.card-simulator .btn {
-  margin-top: 20px;
-}
-
-
-.card-simulator .form-control {
-	margin-bottom: 20px;
-	padding-left: 2px;
-	padding-right: 2px;
-	background-color: transparent;
-	border-color: transparent transparent black transparent;
-	border-radius: 0;
-}
-
-.simulator label {
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-.card-simulator .input-group-text {
-	background-color: transparent;
-	border-color: transparent;
-}
-
-.input-group-append {
-	margin-left: -1px;
-	margin-bottom: 20px;
-}
-
 
 // ==== Sliders styling
 /*.noUi-horizontal .noUi-tooltip  {
@@ -137,11 +87,12 @@ $gutter-height: 16px;
 .noUi-background {
   height: $gutter-height;
   &.noUi-vertical {
-    height: 200px;
-    width: $gutter-height;
+    height: $gutter-height;
+    width: 200px;
     margin: 0 auto 30px;
   }
 }
+
 .noUi-base {
   
   .noUi-connect {
@@ -156,12 +107,14 @@ $gutter-height: 16px;
     box-shadow: none;
     color: #FFFFFF;
     display: table;
-    font-size: 15px;
+    font-size: 1.5em; /*15px;*/
     height: $control-height;
     left: 0;
     margin-left: -22px;
-    margin-top: -($control-height/2) + $gutter-height/2 - 1;
-    padding: 0;
+    //margin-top: -($control-height/2) + $gutter-height/2 - 1;
+    margin-top: -($control-height/2) - 1;
+    padding-left: 10px;
+    padding-right: 10px;
     position: absolute;
     text-align: center;
     white-space: nowrap;
@@ -213,8 +166,79 @@ $gutter-height: 16px;
   background-color: #68B3C8;
 }
 
+.noUi-horizontal {
+  margin: 8px 0;
+}
+
 .noUi-horizontal, .noUi-origin {
   height: 4px;
+}
+
+.card-simulator {
+  background-color: #FF8F5E;
+  border-radius: 0 8px 8px 0;
+  color: #fff;
+  
+  margin: 20px 0 70px;
+  min-height: 500px;
+  padding: 30px;
+
+
+  label {
+    margin-top: 15px;
+  }
+
+  h4, input {
+    font-weight: bolder;
+    font-size: 1.5em;
+  }
+
+  input {
+    margin-top: 23px;
+    margin-bottom: 0px;
+  }
+
+  .card-title {
+    color: #B33C12;
+    text-align: center;
+  }
+
+  .btn {
+    margin-top: 20px;
+  }
+
+
+  .form-control {
+  	padding-left: 2px;
+  	padding-right: 2px;
+  	background-color: transparent;
+  	border-color: transparent transparent black transparent;
+  	border-radius: 0;
+  }
+
+  .slider {
+    margin-top: 40px;
+  }
+
+}
+
+.simulator label {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+
+
+#once_repayment_delay_value, #delayed_repayment_delay_value, #repayment_delay_unit, #repayment_value {
+  //font-weight: bold;
+  color: white; 
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
 }
 
 

@@ -6,21 +6,42 @@ $(document).ready(function() {
 
     const minAmount = 50;
     const maxAmount = 5000;
-    const defaultAmount = 200;
+    const defaultAmount = 1000;
     const stepsAmount = 50;
     const maxRepayments = 36; // months
+    const defaultMonths = 5; // months
 
     var sliderAmount = document.getElementById('slider-amount');
     var sliderMonths = document.getElementById('slider-months');
 
-    updateSliderValue = function(slider, value, suffix = '') {
+
+    // Helpers functions to read sliders values
+    function getInstallmentsValue() 
+    {
+      return (parseInt(sliderAmount.noUiSlider.get()) / parseInt(sliderMonths.noUiSlider.get()) ).toFixed(2);
+    }
+
+    function getMonthsValue()
+    {
+      return parseInt(sliderMonths.noUiSlider.get()).toFixed();
+    }
+
+    function getAmountValue()
+    {
+      return parseInt(sliderAmount.noUiSlider.get()).toFixed();
+    }
+
+
+    
+    // Displays values in slider handle
+    function updateHandleText (slider, value, suffix = '') {
       var children;
       children = slider.getElementsByClassName('noUi-handle');
       children[0].dataset.value = value + suffix;
       return value;
     };
 
-
+    
 
     function setupSimulator() {
 
@@ -35,7 +56,7 @@ $(document).ready(function() {
       });
 
       noUiSlider.create(sliderMonths, {
-        start: 1,
+        start: defaultMonths,
         step: 1,            
         range: {
           'min': 1,    
@@ -48,35 +69,41 @@ $(document).ready(function() {
     setupSimulator();
     
 
+    // Change amount
     sliderAmount.noUiSlider.on('update', function(values, handle) {
 
-      // On rafraichit le remboursement par mois
-      updateSliderValue(sliderMonths, (parseInt(sliderAmount.noUiSlider.get())/parseInt(sliderMonths.noUiSlider.get())).toFixed(2), ' €/mois');
-
       // On rafraichit le nombre de mois
-      $('#delayed_repayment_delay_value').text(sliderMonths.noUiSlider.get() + ' mois');
+      $('#delayed_repayment_delay_value').val( getMonthsValue() );
+
+      // On rafraichit le remboursement par mois
+      updateHandleText(sliderMonths, getInstallmentsValue(), ' €/mois');
 
       // On rafraichit le montant du prêt
-      return updateSliderValue(sliderAmount, parseInt(sliderAmount.noUiSlider.get()).toFixed(), ' €');
+      return updateHandleText(sliderAmount, getAmountValue(), ' €');
 
     });
 
+    // Change months 
     sliderMonths.noUiSlider.on('update', function(values, handle) {
+
+      var months = getMonthsValue();
+
       // On rafraichit le nombre de mois
-      $('#delayed_repayment_delay_value').text(parseInt(sliderMonths.noUiSlider.get()).toFixed() + ' mois');
+      $('#delayed_repayment_delay_value').val(months);
 
       // Cas particullier du remboursement en une fois - on fait apparaitre le delai de remboursement
-      if (sliderMonths.noUiSlider.get() == 1) {
+      if ( months == 1) {
         $('#delayed').hide();
         $('#once').show();
+        return updateHandleText(sliderMonths, getInstallmentsValue(),' €');
       }
       else {
-        $('#once').hide();
         $('#delayed').show();
+        $('#once').hide();
+        return updateHandleText(sliderMonths, getInstallmentsValue(), ' €/mois');
+        
       }
 
-      // On rafraichit la valeur du handle
-      return updateSliderValue(sliderMonths, (parseInt(sliderAmount.noUiSlider.get())/parseInt(sliderMonths.noUiSlider.get())).toFixed(2), ' €/mois');
     });
 
     
