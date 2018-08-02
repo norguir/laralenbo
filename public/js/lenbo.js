@@ -11,79 +11,75 @@ $(document).ready(function() {
     const maxRepayments = 36; // months
 
     var sliderAmount = document.getElementById('slider-amount');
-    var sliderInstallments = document.getElementById('slider-installments');
+    var sliderMonths = document.getElementById('slider-months');
 
-    console.log(sliderAmount);
+    updateSliderValue = function(slider, value, suffix = '') {
+      var children;
+      children = slider.getElementsByClassName('noUi-handle');
+      children[0].dataset.value = value + suffix;
+      return value;
+    };
 
-    function showSettings(elem) {
-      if (elem.val() === "")        $("#settings").hide();
-      else $("#settings").show();
-    }
 
-    function tooltipFormater(e)
-    {
-      return wNumb({ decimals: 0, suffix: ' €/mois' })
-    }
 
     function setupSimulator() {
 
-      // // Filter non numeric amount input
-      // $('#amount').numeric(
-      //   {decimal: false, negative: false}
-      // );
-
-      // // Show settings if amount is set
-      // $('#amount').keyup(function(e) {
-      //   showSettings($(this));
-      //   return true;
-      // });
-
       noUiSlider.create(sliderAmount, {
+        animationDuration: 300,
         start: [defaultAmount],
         step: stepsAmount,            
         range: {
           'min': [minAmount],    
           'max': [maxAmount]     
         },
-        tooltips: wNumb({ decimals: 0, suffix: ' €' }),
       });
 
-      noUiSlider.create(sliderInstallments, {
-        start: [minAmount/maxRepayments],
-        //step: minAmount/maxRepayments,            
+      noUiSlider.create(sliderMonths, {
+        start: 1,
+        step: 1,            
         range: {
-          'min': [Number(sliderAmount.noUiSlider.get()) / maxRepayments],    
-          'max': [Number(sliderAmount.noUiSlider.get())]     
+          'min': 1,    
+          'max': maxRepayments,     
         },
-        tooltips: wNumb({ decimals: 2, suffix: ' €/mois' })
+       
       }); 
-
-      // If this is a page reload some data may already be be in input fields
-      showSettings($('#amount'));
-
     }
 
     setupSimulator();
     
-    sliderAmount.noUiSlider.on('update', function (values, handle) {
-      // Si l'amount change, on change le slider de remboursement
-      console.log(Number(sliderAmount.noUiSlider.get()));
-      sliderInstallments.noUiSlider.updateOptions( {
-        range: {
-          'min': Number(sliderAmount.noUiSlider.get()) / maxRepayments,
-          'max': Number(sliderAmount.noUiSlider.get())
-        },
-        step: Number(sliderAmount.noUiSlider.get()) / maxRepayments
-      });  
+
+    sliderAmount.noUiSlider.on('update', function(values, handle) {
+
+      // On rafraichit le remboursement par mois
+      updateSliderValue(sliderMonths, (parseInt(sliderAmount.noUiSlider.get())/parseInt(sliderMonths.noUiSlider.get())).toFixed(2), ' €/mois');
+
+      // On rafraichit le nombre de mois
+      $('#delayed_repayment_delay_value').text(sliderMonths.noUiSlider.get() + ' mois');
+
+      // On rafraichit le montant du prêt
+      return updateSliderValue(sliderAmount, parseInt(sliderAmount.noUiSlider.get()).toFixed(), ' €');
+
     });
 
-    sliderInstallments.noUiSlider.on('update', function( values, handle ) {
+    sliderMonths.noUiSlider.on('update', function(values, handle) {
+      // On rafraichit le nombre de mois
+      $('#delayed_repayment_delay_value').text(parseInt(sliderMonths.noUiSlider.get()).toFixed() + ' mois');
 
-      if (values[handle] == sliderAmount.noUiSlider.get()) $('#once').show();
-      else $('#once').hide();
-      $('#delayed_repayment_delay_value').text(Math.round(sliderAmount.noUiSlider.get() / values[handle]) + ' mois');
-     
+      // Cas particullier du remboursement en une fois - on fait apparaitre le delai de remboursement
+      if (sliderMonths.noUiSlider.get() == 1) {
+        $('#delayed').hide();
+        $('#once').show();
+      }
+      else {
+        $('#once').hide();
+        $('#delayed').show();
+      }
+
+      // On rafraichit la valeur du handle
+      return updateSliderValue(sliderMonths, (parseInt(sliderAmount.noUiSlider.get())/parseInt(sliderMonths.noUiSlider.get())).toFixed(2), ' €/mois');
     });
+
+    
 
   };
 
