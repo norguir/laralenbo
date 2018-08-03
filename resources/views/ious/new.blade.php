@@ -3,8 +3,7 @@
 
 @section('content')
 
-  <div class="section" style="background-image: url('../images/3hands-square_x1500.png');
-  background-position: right center;">
+  <div class="section lenbo-section">
 
     <div class="container" style="min-height: 100vh;height: 100%;">
 

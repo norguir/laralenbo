@@ -19,7 +19,7 @@
             <div class="panel-group" id="accordion" aria-multiselectable="true" aria-expanded="true">
 
 
-              <div class="card-header card-collapse" role="tab" id="headingOne">
+              {{-- <div class="card-header card-collapse" role="tab" id="headingOne">
                 <h5 class="mb-0 panel-title">
                   <a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     Pourquoi le système bancaire traditionnel marche sur la tête ?
@@ -35,7 +35,7 @@
                   <p>Une dernière chose achève de nous révolter. Si les banques jouissent d’un monopole mais qu’elles privent de nombreux ménages de crédit, nous serions prêts à leur pardonner un certain manque de modernité qui les conduit à être trop prudentes. Pas facile de transformer de si grosses machines. Seulement voilà : chaque année, 200 000 ménages tombent dans le surendettement avec parfois 8, 10 voire 15 crédits accordées par diverses institutions.</p>
                   <p>« Vous trouvez ça absurde ? Nous aussi. » (Comme le dit si bien une fameuse société de crédit à la consommation dans ses spots publicitaires)</p>
                 </div>
-              </div>
+              </div> --}}
 
               <div class="card-header card-collapse" role="tab" id="headingTwo">
                 <h5 class="mb-0 panel-title">
@@ -98,7 +98,7 @@
                 </div>
               </div>
 
-              <div class="card-header card-collapse" role="tab" id="headingFive">
+              {{-- <div class="card-header card-collapse" role="tab" id="headingFive">
                 <h5 class="mb-0 panel-title">
                     <a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                       En quoi consiste notre service de conclusion de prêt ?
@@ -117,7 +117,7 @@
                   </ul>
                   <p>Nous mettons également à votre disposition un outil d’évaluation des capacités de remboursement.</p>
                 </div>
-              </div>
+              </div> --}}
 
               <div class="card-header card-collapse" role="tab" id="headingSix">
                 <h5 class="mb-0 panel-title">

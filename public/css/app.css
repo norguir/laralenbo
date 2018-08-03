@@ -25092,6 +25092,11 @@ License - nucleoapp.com/license/
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+.lenbo-section {
+  background: url("/images/3hands-square_x1500.png") no-repeat;
+  background-position: right top;
+}
+
 .left-column {
   background-color: white;
   border-radius: 8px 0 0 8px;
@@ -25208,16 +25213,16 @@ License - nucleoapp.com/license/
   margin: 20px 0 70px;
   min-height: 500px;
   padding: 30px;
-}
-
-.card-simulator label {
-  margin-top: 15px;
+  /*label {
+    margin-top: 15px;
+  }*/
 }
 
 .card-simulator h4,
-.card-simulator input {
+.card-simulator input,
+.card-simulator .btn {
   font-weight: bolder;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .card-simulator input {
@@ -25231,7 +25236,8 @@ License - nucleoapp.com/license/
 }
 
 .card-simulator .btn {
-  margin-top: 20px;
+  font-weight: normal;
+  font-size: 1.2em;
 }
 
 .card-simulator .form-control {

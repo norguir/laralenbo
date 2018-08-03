@@ -28,6 +28,10 @@
        url('../fonts/montserrat-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+.lenbo-section {
+  background: url('/images/3hands-square_x1500.png') no-repeat; 
+  background-position: right top;
+}
 
 .left-column {
   background-color: rgba(255, 255, 255, 1);
@@ -175,6 +179,7 @@ $gutter-height: 16px;
 }
 
 .card-simulator {
+
   background-color: #FF8F5E;
   border-radius: 0 8px 8px 0;
   color: #fff;
@@ -184,13 +189,13 @@ $gutter-height: 16px;
   padding: 30px;
 
 
-  label {
+  /*label {
     margin-top: 15px;
-  }
+  }*/
 
-  h4, input {
+  h4, input, .btn {
     font-weight: bolder;
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 
   input {
@@ -204,7 +209,8 @@ $gutter-height: 16px;
   }
 
   .btn {
-    margin-top: 20px;
+    font-weight: normal;
+    font-size: 1.2em;
   }
 
 
@@ -230,7 +236,6 @@ $gutter-height: 16px;
 
 
 #once_repayment_delay_value, #delayed_repayment_delay_value, #repayment_delay_unit, #repayment_value {
-  //font-weight: bold;
   color: white; 
 }
 
