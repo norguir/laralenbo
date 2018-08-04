@@ -33,55 +33,26 @@
   background-position: right top;
 }
 
-.left-column {
-  background-color: rgba(255, 255, 255, 1);
-  border-radius: 8px 0 0 8px;
-  
-  border: 1px solid #ccc;
-
-  margin: 20px 0 70px;
-  min-height: 500px;
-  padding: 30px;
-}
-
 // ==== Sliders styling
-/*.noUi-horizontal .noUi-tooltip  {
-  position: relative;
-  top: -250%;
-  min-width: 100px;
-}*/
-
-/*.noUi-handle.noUi-active {
-  transform: scale3d(1.1, 1.1, 1.1);
-}*/
-
-
-
 /// Height of the slider's handle
 /// @type String
 $control-height: 40px;
-
 /// Width of the slider's handle
 /// @type String
 $control-width: 80px;
-
 /// Color of the slider's handle
 /// @type Color
 // $control-color: rgb(94,55,142);
 $control-color: #6dd3d6;
-
 /// Size of the slider handle's text
 /// @type String
 $control-font-size: 16px;
-
 /// Font Weight of the slider handle's text
 /// @type String
 $control-font-weight: 400;
-
 /// Color of the slider's "fill" when connected
 /// @type Color
 $fill-color: darken($control-color, 10%);
-
 /// Height of the slider's gutter
 /// @type String
 $gutter-height: 16px;
@@ -115,7 +86,6 @@ $gutter-height: 16px;
     height: $control-height;
     left: 0;
     margin-left: -22px;
-    //margin-top: -($control-height/2) + $gutter-height/2 - 1;
     margin-top: -($control-height/2) - 1;
     padding-left: 10px;
     padding-right: 10px;
@@ -160,42 +130,52 @@ $gutter-height: 16px;
     }*/
   }
 }
-
 .noUi-origin[style^="left: 0"] .noUi-handle {
   background-color: $control-color;
   border: none;
 }
-
 .slider.slider-info .noUi-origin:first-child {
   background-color: #68B3C8;
 }
-
 .noUi-horizontal {
   margin: 8px 0;
 }
-
 .noUi-horizontal, .noUi-origin {
   height: 4px;
 }
 
-.card-simulator {
+.left-column {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 8px 0 0 8px;
+  
+  border: 1px solid #ccc;
+
+  margin: 20px 0 70px;
+  padding: 30px;
+
+  .info {
+    padding-bottom: 0px;
+    padding-right: 30px;
+  }
+  
+}
+
+
+.simulator {
 
   background-color: #FF8F5E;
   border-radius: 0 8px 8px 0;
   color: #fff;
-  
   margin: 20px 0 70px;
-  min-height: 500px;
   padding: 30px;
-
-
-  /*label {
-    margin-top: 15px;
-  }*/
-
+  
   h4, input, .btn {
     font-weight: bolder;
     font-size: 1.4em;
+  }
+
+  .form-group {
+    padding: 0 30px 0 30px;
   }
 
   input {
@@ -209,8 +189,9 @@ $gutter-height: 16px;
   }
 
   .btn {
-    font-weight: normal;
+    font-weight: 700;
     font-size: 1.2em;
+    margin-top: 40px;
   }
 
 
@@ -226,12 +207,19 @@ $gutter-height: 16px;
     margin-top: 40px;
   }
 
+  .title {
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
 }
 
-.simulator label {
+/*.simulator label {
 	padding-left: 2px;
 	padding-right: 2px;
-}
+}*/
 
 
 
@@ -239,11 +227,5 @@ $gutter-height: 16px;
   color: white; 
 }
 
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display:         flex;
-}
 
 

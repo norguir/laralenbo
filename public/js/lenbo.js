@@ -4,12 +4,14 @@ $(document).ready(function() {
 
   if ($('#simulator').length != 0) { 
 
+
     const minAmount = 50;
     const maxAmount = 5000;
     const defaultAmount = 1000;
-    const stepsAmount = 50;
-    const maxRepayments = 36; // months
-    const defaultMonths = 5; // months
+    const stepsAmount = 50;   // Amount in steps
+    const maxRepayments = 36; // max number of repayment months
+    const defaultMonths = 5; // loan duration in months 
+    const defaultDelay = 2; // months before repayment start
 
     var sliderAmount = document.getElementById('slider-amount');
     var sliderMonths = document.getElementById('slider-months');
@@ -18,7 +20,7 @@ $(document).ready(function() {
     // Helpers functions to read sliders values
     function getInstallmentsValue() 
     {
-      return (parseInt(sliderAmount.noUiSlider.get()) / parseInt(sliderMonths.noUiSlider.get()) ).toFixed(2);
+      return (parseInt(sliderAmount.noUiSlider.get()) / parseInt(sliderMonths.noUiSlider.get()) ).toFixed(0);
     }
 
     function getMonthsValue()
@@ -64,6 +66,8 @@ $(document).ready(function() {
         },
        
       }); 
+
+      $('#once_repayment_delay_value').val(defaultDelay);
     }
 
     setupSimulator();
@@ -76,7 +80,7 @@ $(document).ready(function() {
       $('#delayed_repayment_delay_value').val( getMonthsValue() );
 
       // On rafraichit le remboursement par mois
-      updateHandleText(sliderMonths, getInstallmentsValue(), ' €/mois');
+      updateHandleText(sliderMonths, getInstallmentsValue(), ' €');
 
       // On rafraichit le montant du prêt
       return updateHandleText(sliderAmount, getAmountValue(), ' €');
@@ -100,7 +104,7 @@ $(document).ready(function() {
       else {
         $('#delayed').show();
         $('#once').hide();
-        return updateHandleText(sliderMonths, getInstallmentsValue(), ' €/mois');
+        return updateHandleText(sliderMonths, getInstallmentsValue(), ' €');
         
       }
 

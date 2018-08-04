@@ -25097,25 +25097,6 @@ License - nucleoapp.com/license/
   background-position: right top;
 }
 
-.left-column {
-  background-color: white;
-  border-radius: 8px 0 0 8px;
-  border: 1px solid #ccc;
-  margin: 20px 0 70px;
-  min-height: 500px;
-  padding: 30px;
-}
-
-/*.noUi-horizontal .noUi-tooltip  {
-  position: relative;
-  top: -250%;
-  min-width: 100px;
-}*/
-
-/*.noUi-handle.noUi-active {
-  transform: scale3d(1.1, 1.1, 1.1);
-}*/
-
 .noUi-background {
   height: 16px;
 }
@@ -25206,41 +25187,55 @@ License - nucleoapp.com/license/
   height: 4px;
 }
 
-.card-simulator {
+.left-column {
+  background-color: white;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ccc;
+  margin: 20px 0 70px;
+  padding: 30px;
+}
+
+.left-column .info {
+  padding-bottom: 0px;
+  padding-right: 30px;
+}
+
+.simulator {
   background-color: #FF8F5E;
   border-radius: 0 8px 8px 0;
   color: #fff;
   margin: 20px 0 70px;
-  min-height: 500px;
   padding: 30px;
-  /*label {
-    margin-top: 15px;
-  }*/
 }
 
-.card-simulator h4,
-.card-simulator input,
-.card-simulator .btn {
+.simulator h4,
+.simulator input,
+.simulator .btn {
   font-weight: bolder;
   font-size: 1.4em;
 }
 
-.card-simulator input {
+.simulator .form-group {
+  padding: 0 30px 0 30px;
+}
+
+.simulator input {
   margin-top: 23px;
   margin-bottom: 0px;
 }
 
-.card-simulator .card-title {
+.simulator .card-title {
   color: #B33C12;
   text-align: center;
 }
 
-.card-simulator .btn {
-  font-weight: normal;
+.simulator .btn {
+  font-weight: 700;
   font-size: 1.2em;
+  margin-top: 40px;
 }
 
-.card-simulator .form-control {
+.simulator .form-control {
   padding-left: 2px;
   padding-right: 2px;
   background-color: transparent;
@@ -25248,25 +25243,26 @@ License - nucleoapp.com/license/
   border-radius: 0;
 }
 
-.card-simulator .slider {
+.simulator .slider {
   margin-top: 40px;
 }
 
-.simulator label {
-  padding-left: 2px;
-  padding-right: 2px;
+.simulator .title {
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 40px;
 }
+
+/*.simulator label {
+	padding-left: 2px;
+	padding-right: 2px;
+}*/
 
 #once_repayment_delay_value,
 #delayed_repayment_delay_value,
 #repayment_delay_unit,
 #repayment_value {
   color: white;
-}
-
-.row-eq-height {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
